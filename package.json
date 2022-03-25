@@ -5,7 +5,7 @@
     "test": "jest",
     "client-dev": "parcel public/index.html --open",
     "server-dev": "nodemon server.js",
-    "seed": "node seed.js",
+    "seed": "node server/seed.js",
     "start": "parcel build public/index.html && node server.js"
   },
   "dependencies": {
