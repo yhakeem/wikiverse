@@ -3,8 +3,8 @@
   "version": "1.2.0",
   "scripts": {
     "test": "jest",
-    "start-dev": "parcel public/index.html --open",
-    "start-server": "nodemon server.js",
+    "client-dev": "parcel public/index.html --open",
+    "server-dev": "nodemon server.js",
     "seed": "node seed.js",
     "start": "parcel build public/index.html && node server.js"
   },
