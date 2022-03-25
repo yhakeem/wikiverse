@@ -26,19 +26,23 @@ router.post("/", async (req, res, next) => {
 
     await page.setAuthor(user);
 
-    const tagArray = req.body.tags.split(' ');
-    const tags = await Promise.all(tagArray.map(async (tagName) => {
-      const [tag, wasCreated] = await Tag.findOrCreate({
-        where: {
-          name: tagName
+    if(req.body.tags) {
+      const tagArray = req.body.tags.split(' ');
+      const tags = [];
+      for (let tagName of tagArray) {
+        const [tag, wasCreated] = await Tag.findOrCreate({
+          where: {
+            name: tagName
+          }
+        });
+        if (wasCreated) {
+          tags.push(tag);
         }
-      });
-      return tag;
-    }));
+      }
+      await page.addTags(tags);
+    }
 
-    await page.addTags(tags);
-
-    res.redirect("/wiki/" + page.slug);
+    res.send(page);
   } catch (error) {
     next(error);
   }
@@ -76,7 +80,7 @@ router.put("/:slug", async (req, res, next) => {
 
     await updatedPages[0].setTags(tags);
 
-    res.redirect("/wiki/" + updatedPages[0].slug);
+    res.send(updatedPages[0]);
   } catch (error) {
     next(error);
   }
@@ -91,7 +95,8 @@ router.delete("/:slug", async (req, res, next) => {
       }
     });
 
-    res.redirect("/wiki");
+    const pages = await Page.findAll();
+    res.send(pages);
   } catch (error) {
     next(error);
   }
