@@ -102,15 +102,6 @@ router.delete("/:slug", async (req, res, next) => {
   }
 });
 
-router.get('/search', async (req, res, next) => {
-  try {
-    const pages = await Page.findByTag(req.query.search);
-    res.send(pages);
-  } catch (error) {
-    next(error);
-  }
-});
-
 // GET /wiki/:slug
 router.get("/:slug", async (req, res, next) => {
   try {
