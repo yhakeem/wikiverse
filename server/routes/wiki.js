@@ -130,34 +130,6 @@ router.get("/:slug", async (req, res, next) => {
   }
 });
 
-// GET /wiki/:slug/edit
-router.get("/:slug/edit", async (req, res, next) => {
-  try {
-    const page = await Page.findOne({
-      where: {
-        slug: req.params.slug
-      },
-      include: [
-        {
-          model: Tag
-        },
-        {
-          model: User,
-          as: 'author'
-        }
-      ]
-    });
-
-    if (page === null) {
-      res.sendStatus(404);
-    } else {
-      res.send(editPage(page, page.author, page.tags));
-    }
-  } catch (error) {
-    next(error);
-  }
-});
-
 // GET /wiki/:slug/similar
 router.get('/:slug/similar', async (req, res, next) => {
   try {
