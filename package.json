@@ -1,5 +1,5 @@
 {
-  "name": "wikistack",
+  "name": "wikiverse",
   "version": "1.2.1",
   "scripts": {
     "test": "jest",
