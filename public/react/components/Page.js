@@ -1,40 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import {PageComp} from './PageComp.js'
+import React, {useState, useEffect} from 'react';
+import { PageComp } from "./PageComp"
+
 import apiURL from '../api';
 
 export const Page = (props) => {
+  
+  const [page, setPage] = useState({});
 
-const [page,setPage]=useState({})
+  const fetchPage = async (slug) =>{
+  
 
-	// // async function fetchPage(slug){
-	// 	try {
-	// 		const response = await fetch(`${apiURL}/wiki/${slug}`);
-	// 		const pageData = await response.json();
-	// 		setPage(pageData);
-	// 	} catch (err) {
-	// 		console.log("Oh no an error! ", err)
-	// 	}
-	// // }
-
-  const fetchPage =async (slug) =>{
+    
 		try {
 			const response = await fetch(`${apiURL}/wiki/${slug}`);
-			const pageData = await response.json();
-			setPage(pageData);
+			const data = await response.json();
+			setPage(data);
+			// console.log(data);
 		} catch (err) {
 			console.log("Oh no an error! ", err)
 		}
+	}
 
-  }
-  // useEffect(() => {
+	// useEffect(() => {
 	// 	fetchPage();
 	// }, []);
 
-if (page)   return (
-   <PageComp wikipage={page}/> ); else return  (<>
-   <p>{props.page.slug}</p>
-    <h3 onClick={()=>  fetchPage (props.page.slug)}>{props.page.title}</h3>
+  if (Object.entries(page).length > 0 ) return (
+ 
+    <PageComp wikipage={page}/> ); else return (<>
+    <h3 onClick={() => fetchPage (props.page.slug)}>{props.page.title}</h3>
     <p>{props.page.content}</p>
   </>)
 } 
-	
+
+
+
+
+
+
+
+
+
