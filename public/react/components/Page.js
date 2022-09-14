@@ -3,33 +3,18 @@ import { PageComp } from "./PageComp"
 
 import apiURL from '../api';
 
-export const Page = (props) => {
-  
-  const [page, setPage] = useState({});
+export const Page = ({page,fetchPage}) => {
+  console.log(page)
 
-  const fetchPage = async (slug) =>{
-  
 
-    
-		try {
-			const response = await fetch(`${apiURL}/wiki/${slug}`);
-			const data = await response.json();
-			setPage(data);
-			// console.log(data);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
-		}
-	}
 
-	// useEffect(() => {
-	// 	fetchPage();
-	// }, []);
-
-  if (Object.entries(page).length > 0 ) return (
+  // if (Object.entries(page).length > 0 ) return (
  
-    <PageComp wikipage={page}/> ); else return (<>
-    <h3 onClick={() => fetchPage (props.page.slug)}>{props.page.title}</h3>
-    <p>{props.page.content}</p>
+  //   <PageComp wikipage={page}/> ); else 
+    
+    return (<>
+    <h3 onClick={() => fetchPage (page.slug)}>{page.title}</h3>
+    {/* <p>{props.page.content}</p> */}
   </>)
 } 
 

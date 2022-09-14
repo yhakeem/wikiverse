@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from './Page';
 
-export const PageComp = ({wikipage}) => {
+export const PageComp = ({wikipage,setPage}) => {
 	
 	(wikipage ? console.log(wikipage) : null);
 
@@ -15,14 +15,17 @@ export const PageComp = ({wikipage}) => {
 				<p>{wikipage.content}</p>
 				<p><strong>Tags:</strong></p>
 				{wikipage.tags.map((tag, idx) => (<p key={idx}>{tag.name}</p>))}
+                <button onClick={()=>setPage({})}>Back To Wiki List</button>
 			</div>
 		: null
 		}
+
+
 	</>
 } 
 
 
-
+//pass set page rpops in 
 
 
 
