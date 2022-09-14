@@ -27,6 +27,7 @@ export const App = () => {
       <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
 			<PagesList pages={pages} />
+			<button onClick={() => <PagesList pages={pages} />} >Back To Wiki List</button>
 		</main>
 	)
 }
