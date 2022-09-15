@@ -21,6 +21,7 @@ export const App = () => {
 	const [data, setData] = useState(null);
 	const [isAddingPageComp, setIsAddingPageComp] = useState(false);
 	const [input, setInput] = useState(initialInputs);
+	const [isAddingArticle, setIsAddingArticle] = useState(false);
 
 	const fetchPage = async (slug) =>{
 		  try {
@@ -77,16 +78,15 @@ export const App = () => {
 		<main>	
       <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} fetchPage={fetchPage}/>
-
-			{/* <button onClick={() => setIsAddingArticle(true)}>
-                Create a new page
-              </button> */}
-
-			  <button onClick={() => setIsAddingArticle(true)}>
-                Create a new page
-              </button>
+			{!isAddingArticle ?  
+			<>
+				<PagesList pages={pages} fetchPage={fetchPage}/>
+				<button onClick={() => setIsAddingArticle(true)}>Create a new page </button>
+			</>
 			
+		 
+			:
+			<Form />}
 		</main>
 		
 	)
