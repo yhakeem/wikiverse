@@ -10,6 +10,7 @@ export const PageComp = ({wikipage,setPage}) => {
       method: "DELETE"
     });
     const data = await response.json();
+     setPage({});
     }
 
 
@@ -38,7 +39,7 @@ export const PageComp = ({wikipage,setPage}) => {
 
 
 
-
+//try then 
 
 
 
