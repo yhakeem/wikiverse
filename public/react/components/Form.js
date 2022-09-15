@@ -52,10 +52,7 @@ export const Form = () => {
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email'/>
             </label>
 
-            {/* <label>
-                Tags:
-                <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} placeholder='tags'/>
-            </label> */}
+          
 
                          <button type='submit' onClick={handleSubmit}>Create Page</button>
         </form>   

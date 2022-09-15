@@ -46,26 +46,12 @@ export const App = () => {
 		}
 	}
 
-
-	// async function submitHandler(event) {
-	// 	event.preventDefault();
-	// 	const  = initialInputs;
-	// 	const res = await fetch(`${apiURL}/wiki`, {
-	// 	  method: "POST",
-	// 	  headers: {
-	// 		"Content-Type": "application/json",
-	// 	  },
-	// 	  body: JSON.stringify(articleData),
-	// 	});
-	// 	const data = await res.json();
-	
-	// 	await fetchPages();
-	// 	setIsAddingArticle(false);
-	// 	resetFields();
-	//   }
-	//   function resetFields() {
-	// 	setInput(initialInputs);
-	//   }
+// const handleDelete= async ()=>{
+// 	const response = await fetch(`${apiURL}/wiki/${slug}`, {
+//   method: "DELETE"
+// });
+// const data = await response.json();
+// }
 	
 	useEffect(() => {
 		fetchPages();
@@ -82,6 +68,7 @@ export const App = () => {
 			<>
 				<PagesList pages={pages} fetchPage={fetchPage}/>
 				<button onClick={() => setIsAddingArticle(true)}>Create a new page </button>
+				
 			</>
 			
 		 
