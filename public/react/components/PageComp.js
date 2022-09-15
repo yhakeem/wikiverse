@@ -25,7 +25,7 @@ export const PageComp = ({wikipage,setPage}) => {
 } 
 
 
-//pass set page rpops in 
+
 
 
 

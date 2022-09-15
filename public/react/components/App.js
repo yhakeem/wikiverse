@@ -19,7 +19,7 @@ export const App = () => {
 	
 	const [page, setPage] = useState({});
 	const [data, setData] = useState(null);
-	const [isAddingPageComp, setIsAddingPageComp] = useState(false);
+	// const [isAddingPageComp, setIsAddingPageComp] = useState(false);
 	const [input, setInput] = useState(initialInputs);
 	const [isAddingArticle, setIsAddingArticle] = useState(false);
 
@@ -49,7 +49,7 @@ export const App = () => {
 
 	// async function submitHandler(event) {
 	// 	event.preventDefault();
-	// 	const  = inputOptions;
+	// 	const  = initialInputs;
 	// 	const res = await fetch(`${apiURL}/wiki`, {
 	// 	  method: "POST",
 	// 	  headers: {
